@@ -1,0 +1,28 @@
+import BookItem from "../bookItem/BookItem";
+import "./Books.css";
+import Proptypes from "prop-types";
+
+const Books = ({ books }) => {
+  return (
+    <div className="books-container">
+      {books.length > 0 ? (books.map((book) => (
+          <BookItem
+            title={book.bookTitle}
+            author={book.bookAuthor}
+            pageCount={book.pageCount}
+            rating={book.bookRating}
+            imageUrl={book.imageUrl}
+          />
+        ))
+      ) : (
+        <p>NO HAY NADA PARA MOSTRAR</p>
+      )}
+    </div>
+  );
+};
+
+Books.prototypes = {
+  books: Proptypes.array,
+};
+
+export default Books;
